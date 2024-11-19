@@ -1,35 +1,127 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { motion } from "motion/react";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const links = [
+    { name: "Github", url: "#" },
+    { name: "LinkedIn", url: "#" },
+    { name: "Twitter", url: "#" },
+    { name: "Instagram", url: "#" },
+    { name: "YouTube", url: "#" },
+  ];
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="w-screen h-screen bg-neutral-950 text-white flex fixed overflow-auto">
+      <motion.div
+        drag
+        dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="p-10 rounded-lg m-auto flex flex-col items-center justify-center gap-8 bg-neutral-900 cursor-grab active:cursor-grabbing"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          animate={{ opacity: 1, y: 0, transition: { delay: 0.5 } }}
+          className="rounded-full w-32 h-32 overflow-hidden"
+        >
+          <img
+            src="https://utfs.io/f/xlDS7bZeuGNrjEZ3nWXTIYeScpJG62uVoRAh0Wif7Lyd9OKw"
+            alt="John Doe"
+          />
+        </motion.div>
+        <motion.div
+          variants={textContainer}
+          initial="hidden"
+          animate="visible"
+          className="text-center flex flex-col gap-4"
+        >
+          <motion.h1 variants={textVariants} className="text-4xl font-semibold">
+            John Doe
+          </motion.h1>
+          <motion.p
+            variants={textVariants}
+            className="text-xl text-lime-500 font-semibold"
+          >
+            London, UK
+          </motion.p>
+        </motion.div>
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: "100%", transition: { delay: 1, duration: 1 } }}
+          className="flex flex-col gap-4 overflow-hidden"
+        >
+          <p className="text-center text-nowrap">
+            &quot;Front-end developer and avid reader.&quot;
+          </p>
+        </motion.div>
+        <motion.div
+          variants={linkContainer}
+          initial="hidden"
+          animate="visible"
+          className="flex flex-col gap-4 w-[350px]"
+        >
+          {links.map((link, index) => (
+            <motion.a
+              variants={linkVariants}
+              whileHover={{ scale: 1.1, backgroundColor: "#404040" }}
+              key={index}
+              href={link.url}
+              rel="noreferrer"
+              className="text-xl w-full text-center py-3 bg-neutral-800 rounded-lg font-semibold"
+            >
+              {link.name}
+            </motion.a>
+          ))}
+        </motion.div>
+      </motion.div>
+    </div>
+  );
 }
 
-export default App
+const textContainer = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      delay: 0.75,
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const textVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+  },
+};
+
+const linkContainer = {
+  hidden: {
+    opacity: 0,
+    x: 100,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const linkVariants = {
+  hidden: {
+    opacity: 0,
+    x: 100,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+  },
+};
+
+export default App;
