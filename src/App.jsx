@@ -10,7 +10,7 @@ function App() {
   ];
 
   return (
-    <div className="w-screen h-screen bg-neutral-950 text-white flex fixed overflow-auto">
+    <div className="w-screen h-screen bg-neutral-950 text-white flex flex-col fixed overflow-auto">
       <motion.div
         drag
         dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
