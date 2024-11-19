@@ -73,7 +73,7 @@ function App() {
           ))}
         </motion.div>
       </motion.div>
-      <motion.p initial={{opacity:0}} animate={{opacity:1, transition: {delay:4}}} className="absolute m-auto bottom-10">Try to drag the card around</motion.p>
+      <motion.p initial={{opacity:0}} animate={{opacity:1, transition: {delay:4}}} className="absolute w-screen text-center bottom-24">Try to drag the card around</motion.p>
     </div>
   );
 }
