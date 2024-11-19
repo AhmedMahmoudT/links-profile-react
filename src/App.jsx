@@ -16,7 +16,7 @@ function App() {
         dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
-        className="p-10 rounded-lg m-auto flex flex-col items-center justify-center gap-8 bg-neutral-900 cursor-grab active:cursor-grabbing"
+        className="z-10 p-10 rounded-lg m-auto flex flex-col items-center justify-center gap-8 bg-neutral-900 cursor-grab active:cursor-grabbing"
       >
         <motion.div
           initial={{ opacity: 0, y: 32 }}
