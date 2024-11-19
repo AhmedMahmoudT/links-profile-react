@@ -39,7 +39,7 @@ function App() {
           </motion.h1>
           <motion.p
             variants={textVariants}
-            className="text-xl text-lime-500 font-semibold"
+            className="text-xl text-amber-500 font-semibold"
           >
             London, UK
           </motion.p>
