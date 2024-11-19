@@ -11,7 +11,8 @@ function App() {
 
   return (
     <div className="w-screen h-screen bg-neutral-950 text-white flex flex-col fixed overflow-auto">
-      <motion.div
+      <div>
+        <motion.div
         drag
         dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
         initial={{ opacity: 0, y: 100 }}
@@ -74,6 +75,7 @@ function App() {
         </motion.div>
       </motion.div>
       <motion.p initial={{opacity:0}} animate={{opacity:1, transition: {delay:4}}} className="m-auto">Try to drag the card around</motion.p>
+      </div>
     </div>
   );
 }
