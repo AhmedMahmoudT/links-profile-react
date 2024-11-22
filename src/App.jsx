@@ -59,11 +59,11 @@ function App() {
           animate="visible"
           className="flex flex-col gap-4 w-[350px]"
         >
-          {links.map((link, index) => (
+          {links.map((link) => (
             <motion.a
               variants={linkVariants}
               whileHover={{ scale: 1.1, backgroundColor: "#404040" }}
-              key={index}
+              key={link.name}
               href={link.url}
               rel="noreferrer"
               className="text-xl w-full text-center py-3 bg-neutral-800 rounded-lg font-semibold"
