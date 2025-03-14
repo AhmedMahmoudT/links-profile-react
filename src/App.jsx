@@ -10,8 +10,8 @@ function App() {
   ];
 
   return (
-    <div className="w-screen h-screen bg-neutral-950 text-white flex justify-center overflow-auto">
-      <div className="scale-[.70] md:scale-90 lg:scale-100 flex flex-col fixed z-10 -mt-10 md:mt-10 lg:mt-20">
+    <div className="w-screen h-screen bg-neutral-950 text-white flex justify-center">
+      <div className="scale-[.70] flex flex-col fixed z-10 justify-center h-full">
       <motion.div
         drag
         dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
@@ -78,7 +78,7 @@ function App() {
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, transition: { delay: 4 } }}
-        className="fixed text-neutral-700 w-screen text-center bottom-10"
+        className="fixed text-neutral-700 w-screen text-center bottom-5 2xl:bottom-10"
       >
         Try to drag the card around
       </motion.p>
