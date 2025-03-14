@@ -10,13 +10,14 @@ function App() {
   ];
 
   return (
-    <div className="w-screen h-screen bg-neutral-950 text-white flex flex-col fixed overflow-auto">
-        <motion.div
+    <div className="w-screen h-screen bg-neutral-950 text-white flex justify-center overflow-auto">
+      <div className="scale-[.70] md:scale-90 lg:scale-100 flex flex-col fixed z-10 -mt-10 md:mt-10 lg:mt-20">
+      <motion.div
         drag
         dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
-        className="z-10 p-10 rounded-lg m-auto flex flex-col items-center justify-center gap-8 bg-neutral-900 cursor-grab active:cursor-grabbing"
+        className="z-10 p-10 rounded-lg flex flex-col items-center justify-center gap-8 bg-neutral-900 cursor-grab active:cursor-grabbing"
       >
         <motion.div
           initial={{ opacity: 0, y: 32 }}
@@ -73,7 +74,14 @@ function App() {
           ))}
         </motion.div>
       </motion.div>
-      <motion.p initial={{opacity:0}} animate={{opacity:1, transition: {delay:4}}} className="fixed text-neutral-700 w-screen text-center bottom-10">Try to drag the card around</motion.p>
+      </div>
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, transition: { delay: 4 } }}
+        className="fixed text-neutral-700 w-screen text-center bottom-10"
+      >
+        Try to drag the card around
+      </motion.p>
     </div>
   );
 }
